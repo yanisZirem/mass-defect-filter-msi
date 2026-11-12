@@ -1,8 +1,8 @@
-# Mass defect filter for MALDI-MSI ion lists
+# Mass defect filter for lipid ion lists in mass spectrometry imaging
 
 R script that flags which ions of a MALDI-MSI peak list are **lipid-like** and which are **non-lipid** (matrix clusters, salts, peptides, small metabolites, ...), based on their mass defect.
 
-For each observed *m/z*, the script checks whether its mass defect falls inside the envelope of theoretical lipid ions at the same nominal mass. Ions outside this window are reported as non-lipid, and can be listed, plotted and discussed separately.
+For each observed *m/z*, the script checks whether its mass defect falls inside the envelope of theoretical lipid ions at the same nominal mass. Ions outside this window are reported as non-lipid and can be listed, plotted and discussed separately.
 
 ## Method
 
@@ -93,7 +93,3 @@ The `check` column cross-references annotation and filter:
 - Defects are computed with the `floor` convention, which is appropriate for lipids in the *m/z* 400-1000 range. Species with a negative defect relative to their nominal mass (heavily oxidised or phosphorylated lipids) would be misclassified.
 - DHB cluster matches are indicative and may be coincidental at the 5 mDa tolerance.
 - Peak detection in the imzML part is a simple local-maximum search on the mean spectrum; for publication-grade peak picking, provide your own peak list through the Excel input.
-
-## License
-
-To be defined (e.g. MIT).
